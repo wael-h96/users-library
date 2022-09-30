@@ -46,14 +46,24 @@ export const EditModal = ({ ifOpen, onClose, users, onUpdateUser, type, onAddUse
         if (type === "edit") {
             if (checkInputs()) {
                 onUpdateUser(name, email, location)
+                clear()
                 onClose()
             }
         } else {
             if (checkInputs()) {
                 onAddUser(name, email, location, title, lastName)
+                clear()
                 onClose()
             }
         }
+    }
+
+    const clear = () => {
+        setName("")
+        setLastName("")
+        setEmail("")
+        setLocation("")
+        setTitle("")
     }
 
     const checkInputs = () => {
